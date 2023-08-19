@@ -8640,6 +8640,7 @@ sub set_constants {                          # {{{1
             'tres'        => 'Godot Resource'        ,
             'tscn'        => 'Godot Scene'           ,
             'thrift'      => 'Thrift'                ,
+            'tla'         => 'TLA+'                  ,
             'tpl'         => 'Smarty'                ,
             'trigger'     => 'Apex Trigger'          ,
             'ttcn'        => 'TTCN'                  ,
@@ -10205,6 +10206,11 @@ sub set_constants {                          # {{{1
     'Text'               => [
                                 [ 'remove_matches'      , '^\s*$'  ],
                             ],
+    'TLA+'             => [     [ 'remove_OCaml_comments',           ],
+                                [ 'remove_matches'      , '^\\s*\\\\\\*' ],
+                                #[ 'remove_between_regex', '^\\\\\\* BEGIN TRANSLATION', '^\\\\\\* END TRANSLATION' ],
+                                [ 'remove_between_regex', 'BEGIN TRANSLATION', 'END TRANSLATION' ],
+                          ],
     'Thrift'             => [
                                 [ 'rm_comments_in_strings', '"', '/*', '*/' ],
                                 [ 'rm_comments_in_strings', '"', '//', '' ],
@@ -10976,6 +10982,7 @@ sub set_constants {                          # {{{1
     'TeX'                          =>   1.50,
     'Text'                         =>   0.50,
     'Thrift'                       =>   2.50,
+    'TLA+'                         =>   1.00,
     'Titanium Style Sheet'         =>   2.00,
     'TOML'                         =>   2.76,
     'Twig'                         =>   2.00,
